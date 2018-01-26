@@ -25,16 +25,32 @@ app.get("/index", function(req, res) {
 
 app.post("/", function(req, res) {
 
-  db.Burger.create (
+  db.Burger.create ({
 
       burger_name: req.body.burger_name }
 
   ).then(function() {
 
-    res.redirect
-  })
+    res.redirect("index");
+  });
 }
 
-//put app
+//put app to push eaten burgers to the db
 
-module.exports = router;
+//SOMETHING LIKE THIS
+
+// app.put("/id", function(req, res) {
+
+//   db.Burger.update ({
+
+//     eaten:true;
+
+//     where: req.params.id
+//   });
+
+//     res.redirect("index")
+// }
+
+//NOT EXPORT TO ROUTER, WHERE TO EXPORT?
+
+// module.exports = router;
